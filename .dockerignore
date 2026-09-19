@@ -1,0 +1,6 @@
+# Liste blanche : seul ce que le Dockerfile copie entre dans le contexte de build
+*
+!si-docker-airflow/start.sh
+!si-project-ocr-invoice/pyproject.toml
+!si-project-ocr-invoice/invoice_ocr/
+**/__pycache__/

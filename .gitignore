@@ -1,0 +1,18 @@
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+.venv/
+
+# Sorties du pipeline (générées, non versionnées)
+si-project-ocr-invoice/data/output/
+si-project-ocr-invoice/data/rejected/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,21 @@
+[project]
+name = "invoice-ocr"
+version = "0.1.0"
+description = "Extraction des lignes de total de factures PDF vers un export Excel consolidé"
+requires-python = ">=3.11"
+dependencies = [
+    "pdfplumber>=0.10.0",
+    "openpyxl>=3.1.0",
+    "pandas>=2.0.0",
+]
+
+[project.scripts]
+invoice-ocr = "invoice_ocr.extraction:main"
+invoice-ocr-compare = "invoice_ocr.comparison:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["invoice_ocr"]

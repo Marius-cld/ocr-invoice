@@ -1,0 +1,33 @@
+services:
+  airflow:
+    build:
+      context: ..
+      dockerfile: si-docker-airflow/Dockerfile
+    image: airflow-ocr:custom
+    container_name: airflow_ocr
+    restart: always
+    user: "${AIRFLOW_UID:-50000}:0"
+    ports:
+      - "8081:8080"
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+      AIRFLOW__CORE__PARALLELISM: "4"
+      AIRFLOW__CORE__MAX_ACTIVE_TASKS_PER_DAG: "4"
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/db/airflow.db
+      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_USERS: "${AIRFLOW_ADMIN_USER:?à définir dans .env}:admin"
+      AIRFLOW_ADMIN_USER: ${AIRFLOW_ADMIN_USER}
+      AIRFLOW_ADMIN_PASSWORD: ${AIRFLOW_ADMIN_PASSWORD:?à définir dans .env}
+      INVOICE_OCR_DATA_DIR: /opt/airflow/data
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ../si-project-ocr-invoice/data:/opt/airflow/data
+      - airflow_db:/opt/airflow/db
+      - airflow_logs:/opt/airflow/logs
+    command: ["bash", "/opt/airflow/start.sh"]
+
+# Volumes nommés : rien de généré (base, logs) n'atterrit dans le dépôt
+volumes:
+  airflow_db:
+  airflow_logs:
