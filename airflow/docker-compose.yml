@@ -2,7 +2,7 @@ services:
   airflow:
     build:
       context: ..
-      dockerfile: si-docker-airflow/Dockerfile
+      dockerfile: airflow/Dockerfile
     image: airflow-ocr:custom
     container_name: airflow_ocr
     restart: always
@@ -22,7 +22,7 @@ services:
       INVOICE_OCR_DATA_DIR: /opt/airflow/data
     volumes:
       - ./dags:/opt/airflow/dags
-      - ../si-project-ocr-invoice/data:/opt/airflow/data
+      - ../data:/opt/airflow/data
       - airflow_db:/opt/airflow/db
       - airflow_logs:/opt/airflow/logs
     command: ["bash", "/opt/airflow/start.sh"]

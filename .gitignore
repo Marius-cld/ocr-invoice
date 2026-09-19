@@ -8,8 +8,10 @@ build/
 .venv/
 
 # Sorties du pipeline (générées, non versionnées)
-si-project-ocr-invoice/data/output/
-si-project-ocr-invoice/data/rejected/
+data/output/*
+!data/output/.gitkeep
+data/rejected/*
+!data/rejected/.gitkeep
 
 # IDE / OS
 .vscode/
