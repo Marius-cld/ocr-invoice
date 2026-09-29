@@ -10,11 +10,10 @@ planifié quotidiennement avec Airflow (Docker).
 ```
 .
 ├── src/
-│   └── invoice_ocr/
-│       ├── settings.py         # chemins (surchargeables via INVOICE_OCR_DATA_DIR)
-│       ├── extraction.py       # lecture PDF (pdfplumber) + point d'entrée
-│       ├── export.py           # nettoyage des montants + écriture Excel
-│       └── comparison.py       # comparaison d'une facture à la précédente du même client
+│   ├── settings.py         # chemins (surchargeables via INVOICE_OCR_DATA_DIR)
+│   ├── extraction.py       # lecture PDF (pdfplumber) + point d'entrée
+│   ├── export.py           # nettoyage des montants + écriture Excel
+│   └── comparison.py       # comparaison d'une facture à la précédente du même client
 ├── airflow/
 │   ├── dags/
 │   │   └── invoice-ocr-dag.py  # DAG quotidien : extraction puis comparaison
@@ -57,6 +56,6 @@ cp .env.example .env    # renseigner AIRFLOW_ADMIN_USER et AIRFLOW_ADMIN_PASSWOR
 docker compose up --build
 ```
 
-L'interface est disponible sur <http://localhost:8081>. Le dossier `data/` est
+L'interface est disponible sur [http://localhost:8081](http://localhost:8081). Le dossier `data/` est
 monté dans le conteneur ; la base et les logs Airflow restent dans des volumes
 nommés, hors du dépôt.

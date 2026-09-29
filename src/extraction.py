@@ -8,8 +8,8 @@ from pathlib import Path
 
 import pdfplumber
 
-from invoice_ocr.export import InvoiceRow, export_to_xlsx
-from invoice_ocr.settings import DATA_INPUT, DATA_OUTPUT, DATA_REJECTED, OUTPUT_FILENAME
+from src.export import InvoiceRow, export_to_xlsx
+from src.settings import DATA_INPUT, DATA_OUTPUT, DATA_REJECTED, OUTPUT_FILENAME
 
 logger = logging.getLogger(__name__)
 

@@ -23,6 +23,7 @@ services:
     volumes:
       - ./dags:/opt/airflow/dags
       - ../data:/opt/airflow/data
+      - ../src:/opt/airflow/src
       - airflow_db:/opt/airflow/db
       - airflow_logs:/opt/airflow/logs
     command: ["bash", "/opt/airflow/start.sh"]

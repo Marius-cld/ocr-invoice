@@ -15,13 +15,13 @@ def ocr_dag():
 
     @task
     def run_invoice_extraction():
-        from invoice_ocr.extraction import main
+        from src.extraction import main
 
         main()
 
     @task
     def run_invoice_comparison():
-        from invoice_ocr.comparison import main
+        from src.comparison import main
 
         main()
 

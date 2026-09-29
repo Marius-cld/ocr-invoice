@@ -4,7 +4,7 @@ import logging
 
 import pandas as pd
 
-from invoice_ocr.settings import DATA_OUTPUT, OUTPUT_FILENAME, RESULT_FILENAME
+from src.settings import DATA_OUTPUT, OUTPUT_FILENAME, RESULT_FILENAME
 
 logger = logging.getLogger(__name__)
 

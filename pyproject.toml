@@ -6,8 +6,8 @@ requires-python = ">=3.11"
 dynamic = ["dependencies"]
 
 [project.scripts]
-invoice-ocr = "invoice_ocr.extraction:main"
-invoice-ocr-compare = "invoice_ocr.comparison:main"
+invoice-ocr = "src.extraction:main"
+invoice-ocr-compare = "src.comparison:main"
 
 [build-system]
 requires = ["setuptools>=68"]
@@ -17,4 +17,5 @@ build-backend = "setuptools.build_meta"
 dependencies = { file = ["requirements.txt"] }
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["."]
+include = ["src*"]
